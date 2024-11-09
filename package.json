@@ -4,7 +4,8 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "reset-db": "node scripts/create-db.js"
   },
   "dependencies": {
     "@apollo/server": "^4.11.2",
