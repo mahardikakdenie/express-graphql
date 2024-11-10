@@ -7,9 +7,14 @@ type Query {
 }
 
 type Mutation {
-    createJob(input: CreateJobInput): Job
+    createJob(input: CreateJobInput): JobResult
     deleteJob(id: ID!): Job
     updateJob(id: ID!, title: String, description: String): Job
+}
+
+type JobResult {
+    success: String
+    job: Job
 }
 
 type Company {

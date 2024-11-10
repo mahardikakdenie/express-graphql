@@ -25,7 +25,14 @@ export const resolvers = {
 
     Mutation: {
         createJob: async (_root, { input: { title, description, companyId }}) => {
-            return createJob({companyId, title, description});
+            const job = await createJob({companyId, title, description});
+            if (!job) {
+                throw notFoundError('error cant create data');
+            }
+            return {
+                success: 'success',
+                job: job
+            };
         },
         deleteJob: async (_root, { id }) => {
             return deleteJob(id);
