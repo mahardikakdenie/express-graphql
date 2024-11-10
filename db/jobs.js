@@ -42,6 +42,6 @@ export async function updateJob({ id, title, description }) {
     throw new Error(`Job not found: ${id}`);
   }
   const updatedFields = { title, description };
-  await getJobTable().update(updatedFields).where({ id });
+  const updateJob = await getJobTable().update(updatedFields).where({ id });
   return { ...job, ...updatedFields };
 }
